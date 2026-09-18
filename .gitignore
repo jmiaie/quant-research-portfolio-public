@@ -1,0 +1,33 @@
+# Python caches and tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage*
+
+# Virtual environments and local settings
+.venv/
+.env
+.env.*
+.python-version
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Notebook and editor state
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.DS_Store
+
+# Research outputs and local data
+# ponytail: anchored to the repo root - an unanchored `reports/` also matched the
+# tracked research/reports/, so a fresh `git add` silently dropped that file.
+/outputs/
+/reports/
+data/raw/
+data/interim/
+data/external/
