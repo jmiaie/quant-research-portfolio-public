@@ -30,7 +30,7 @@ Market-data sourcing, pair universe definition, and historical sampling choices 
 
 ## Validation
 
-Release gates are on `main` (squash merge of PR #6 @ `e23f33beee752e5d00d736571ac70aba12afd7d0`; pre-merge head `01907515f38bbe36782c0e74a2fbdc7f6f6dd573`), covered by `tests/test_directive3_gates.py`:
+The research-engine invariant checks are on `main` (squash merge of PR #6 @ `e23f33beee752e5d00d736571ac70aba12afd7d0`; pre-merge head `01907515f38bbe36782c0e74a2fbdc7f6f6dd573`), covered by `tests/test_directive3_gates.py`:
 
 1. Same-timestamp pair signals
 2. Marked-to-market NAV
@@ -38,7 +38,7 @@ Release gates are on `main` (squash merge of PR #6 @ `e23f33beee752e5d00d736571a
 4. Static-vs-sequential-Kalman distinction
 5. Correct analytics (NAV-based net return; qualified gross cost add-back)
 
-These gates verify research-engine timing, accounting, and estimation invariants on synthetic/unit fixtures. They do **not** assert empirical out-of-sample trading performance. The out-of-sample experiment pack is on `main` under `publication/stat-arb-study/`, with pure-standard-library verifiers that re-check declared artifact hashes, generated files, and map citations — see [Verifying a Pack](VERIFYING.md).
+These checks verify research-engine timing, accounting, and estimation invariants on synthetic/unit fixtures. They do **not** assert empirical out-of-sample trading performance. The out-of-sample experiment pack is on `main` under `publication/stat-arb-study/`, with pure-standard-library verifiers that re-check declared artifact hashes, generated files, and map citations — see [Verifying a Pack](VERIFYING.md).
 
 ## Risk & Limitations
 
@@ -54,7 +54,7 @@ Event-driven research infrastructure with simulated execution, portfolio ledger 
 
 ## Current Status
 
-`Available` (research engine) — D3 release gates and the out-of-sample experiment pack are on `main`; no empirical OOS performance claims.
+`Available` (research engine) — the invariant checks and the out-of-sample experiment pack are on `main`; no empirical OOS performance claims.
 
 ## Planned Improvements
 
