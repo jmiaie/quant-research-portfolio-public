@@ -19,6 +19,8 @@ This repository intentionally includes:
 > **disabled on this repository pending owner activation**, so no CI run has executed here.
 > Every verification claim on this hub was produced by local runs of the commands in
 > [portfolio/VERIFYING.md](portfolio/VERIFYING.md) at the SHAs shown there.
+>
+> CI workflow included; repository Actions are currently disabled pending owner activation. Local verification instructions are provided.
 
 This repository intentionally excludes:
 

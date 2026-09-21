@@ -14,8 +14,8 @@ this hub page: every command below was executed against a fresh clone of the SHA
 **Dependencies.** Verification requirements are repository-specific: the Statistical Arbitrage
 Engine and ML Sentiment packs verify with the standard library alone, while the Financial
 Dynamics Model pack needs its `requirements.txt` plus `PyYAML`, and the Options Volatility Risk
-Lab pack needs `.[dev,viz]` (matplotlib). CI workflow included; repository Actions are currently
-disabled pending owner activation. Local verification instructions are provided.
+Lab pack needs `.[dev,viz]` (matplotlib). 
+CI workflow included; repository Actions are currently disabled pending owner activation. Local verification instructions are provided.
 
 ## Commands
 
