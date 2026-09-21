@@ -6,7 +6,8 @@ If you are reviewing this portfolio quickly, start with:
 
 1. The flagship projects table in the root README
 2. The project pages in `portfolio/`
-3. The research standards in `research/methodology/`
+3. The publication index in `research/publications.md` — canonical heads, evaluation classifications, primary and null findings, and reproduction entrypoints for each flagship
+4. The research standards in `research/methodology/`
 
 What this repository is designed to demonstrate:
 

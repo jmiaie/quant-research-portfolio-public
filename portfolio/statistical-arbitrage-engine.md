@@ -28,6 +28,15 @@ Relative-value strategies depend on temporary dislocations, mean reversion, and 
 
 Market-data sourcing, pair universe definition, and historical sampling choices are documented in the publication pack (`publication/stat-arb-study/`), which maps each reported figure to its source artifact. Public universe examples remain convenience/survivorship-exposed.
 
+## Evaluation Status
+
+- **Evaluation classification: FINAL 2025 WALK-FORWARD EVALUATION** — deliberately *not* described as an "untouched holdout". Cross-program exposure leaves the chronology between the two designs unresolved, so the stronger label would be an overclaim.
+- **2025 result:** three pure-2025 windows, each with **55 candidate tests, 0 FDR survivors, and 0 trades** — a complete **null** trading outcome.
+- **No fabricated metrics:** no Sharpe, drawdown, or turnover figure exists for the 2025 evaluation, and none is claimed.
+- The absence of qualifying pairs is reported **neutrally**. It is **not** presented as foresight, defensive skill, or a strategy correctly "sitting out" an unfavorable period.
+- Re-discovering pairs within each formation window is part of the declared design, **not** hyperparameter reselection.
+- Every reference elsewhere on this page to paper/live-trading extensions is **architecture-only**.
+
 ## Validation
 
 The research-engine invariant checks are on `main` (squash merge of PR #6 @ `e23f33beee752e5d00d736571ac70aba12afd7d0`; pre-merge head `01907515f38bbe36782c0e74a2fbdc7f6f6dd573`), covered by `tests/test_directive3_gates.py`:
@@ -50,11 +59,11 @@ These checks verify research-engine timing, accounting, and estimation invariant
 
 ## Engineering Architecture
 
-Event-driven research infrastructure with simulated execution, portfolio ledger accounting, Alpaca market-data integration hooks, and an architecture designed to support paper/live-trading extensions without exposing proprietary production details in this hub.
+Event-driven research infrastructure with simulated execution, portfolio ledger accounting, Alpaca market-data integration hooks, and an architecture designed to support paper/live-trading extensions without exposing proprietary production details in this hub. That capability is **architecture-only**: it is not a claim of deployment, and no live or paper-traded result is reported.
 
 ## Current Status
 
-`Available` (research engine) — the invariant checks and the out-of-sample experiment pack are on `main`; no empirical OOS performance claims.
+Final 2025 walk-forward evaluation — no qualifying pairs and no trades, reported as a null outcome. The research-engine invariant checks and the out-of-sample experiment pack are on `main`; no empirical out-of-sample performance is claimed.
 
 ## Planned Improvements
 

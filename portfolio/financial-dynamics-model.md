@@ -23,6 +23,15 @@ Market behavior is non-stationary, path-dependent, and regime-sensitive. A credi
 
 Time-series inputs, feature definitions, and sampling decisions are documented in the source repository's publication pack (`SOURCE-GATE.md`), which records the inputs, transformations, and sampling choices behind the committed results.
 
+## Evaluation Status
+
+- **Evaluation classification: FINAL 2025 HOLDOUT EVALUATION.** The holdout audit is **CLEAR**.
+- **What the study is:** a descriptive **regime and risk characterization** — how risk characteristics differ across identified market regimes.
+- **What it is not:** no statistically validated predictive edge is claimed, and no directional-accuracy or trading-alpha figure is asserted.
+- Robustness work (cross-asset QQQ / IWM / TLT / GLD, and the SPY-v2 line) is labeled **post-primary**: it supports the primary characterization and is not an independent confirmation of predictive skill.
+- **Sparse-cell limitation:** cells whose regime occurrence count falls below 20 are reported under a `min(20, n)` rule. A **174-row sparse-cell bootstrap disclosure table** (the `sparse_cell.*` rows of `tables/source_map.json`) records every affected interval, and the technical paper states that the effective block equals `n` in those rows, so those intervals are degenerate or near-degenerate rather than evidence of stability. The pack's wider result-source map contains 469 rows in total.
+- **No prospective or live-market claim is made.**
+
 ## Validation
 
 Repository outputs are reproducible from a fresh clone: the publication pack ships a verifier that re-derives every cited figure, table, and hash from the committed artifacts. See [Verifying a Pack](VERIFYING.md).
@@ -36,11 +45,11 @@ Repository outputs are reproducible from a fresh clone: the publication pack shi
 
 ## Engineering Architecture
 
-Production-oriented Python research architecture with modular analytics, calibration workflows, visualization, and benchmarking support. The publication pack under `publication/` adds a technical paper, a claim register, a source gate, and a 174-row result table set.
+Production-oriented Python research architecture with modular analytics, calibration workflows, visualization, and benchmarking support. The publication pack under `publication/` adds a technical paper, a claim register, a source gate, and a 174-row sparse-cell bootstrap disclosure table (the wider result-source map it draws on contains 469 rows).
 
 ## Current Status
 
-`Active` flagship project with a publication pack on `main` (technical paper, claim register, source gate, result tables) and a passing verifier; validation standardization continues.
+Final 2025 holdout characterization — a descriptive regime and risk study. The publication pack (technical paper, claim register, source gate, result tables) is on `main` with a passing verifier; no predictive-edge or trading-alpha claim is made, and validation standardization continues.
 
 ## Planned Improvements
 
