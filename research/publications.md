@@ -9,15 +9,17 @@ establishes artifact integrity and reproducibility at the cited commit; it does
 not independently establish predictive or economic value.
 
 Each flagship below ships a **publication pack**: a technical paper, a case study, a
-claim register, a source gate, a result-source map, and a standard-library verifier that
-re-derives every cited figure, table, and hash from the committed artifacts. The packs are
+claim register, a source gate, a result-source map, and an **offline verifier** that
+re-derives every cited figure, table, and hash from the committed artifacts. Dependencies are
+**repository-specific, not uniform**: two packs verify with the standard library alone, two
+require a documented install step (see [Verifying a Pack](../portfolio/VERIFYING.md)). The packs are
 on each repository's `main` branch. Directive #10 program sign-off remains pending; nothing
 here is a sign-off.
 
 **How to verify any pack.** Clone the repository, check out the canonical head listed below,
-then run that project's reproduction entrypoint (a standard-library script — no network, no
-credentials). A passing run reproduces the committed tables and figures byte-identically and
-re-checks every cited artifact hash. See [Verifying a Pack](VERIFYING.md) for the general
+then run that project's reproduction entrypoint (offline — no network, no credentials; the
+install step is repository-specific and given in the Verifying a Pack entry for that project). A passing run reproduces the committed tables and figures byte-identically and
+re-checks every cited artifact hash. See [Verifying a Pack](../portfolio/VERIFYING.md) for the general
 procedure. A pass establishes *artifact integrity at that commit* — not performance.
 
 ---
@@ -25,7 +27,7 @@ procedure. A pass establishes *artifact integrity at that commit* — not perfor
 ## 1. Financial Dynamics Model
 
 - **Repository:** [`jmiaie/financial-dynamics-model`](https://github.com/jmiaie/financial-dynamics-model)
-- **Current canonical `main` head:** `2b0a919e4500dabda3c0b6430494361a50d36e4f`
+- **Canonical `main` head at time of writing** (verify the current value with `git ls-remote`): `2b0a919e4500dabda3c0b6430494361a50d36e4f`
 - **Technical paper:** `publication/historical-regime-study/TECHNICAL-PAPER.md`
 - **Case study:** `publication/historical-regime-study/CASE-STUDY.md`
 - **Claim register:** `publication/historical-regime-study/CLAIM-REGISTER.md`
@@ -40,7 +42,7 @@ procedure. A pass establishes *artifact integrity at that commit* — not perfor
 ## 2. Statistical Arbitrage Engine
 
 - **Repository:** [`jmiaie/Advanced_Algorithmic_Trading_Simulator_public`](https://github.com/jmiaie/Advanced_Algorithmic_Trading_Simulator_public)
-- **Current canonical `main` head:** `372d5571ca72913ed0c69c53337473ffe63f8c94`
+- **Canonical `main` head at time of writing** (verify the current value with `git ls-remote`): `372d5571ca72913ed0c69c53337473ffe63f8c94`
 - **Technical paper:** `publication/stat-arb-study/TECHNICAL-PAPER.md`
 - **Case study:** `publication/stat-arb-study/CASE-STUDY.md`
 - **Claim register:** `publication/stat-arb-study/CLAIM-REGISTER.md`
@@ -55,7 +57,7 @@ procedure. A pass establishes *artifact integrity at that commit* — not perfor
 ## 3. Options Volatility Risk Lab
 
 - **Repository:** [`jmiaie/options-volatility-risk-lab`](https://github.com/jmiaie/options-volatility-risk-lab)
-- **Current canonical `main` head:** `8d7f761d6ece8276b529c8ebfaa1cfc32dd74b91`
+- **Canonical `main` head at time of writing** (verify the current value with `git ls-remote`): `8d7f761d6ece8276b529c8ebfaa1cfc32dd74b91`
 - **Technical paper:** `publication/options-risk-study/TECHNICAL-PAPER.md`
 - **Case study:** `publication/options-risk-study/CASE-STUDY.md`
 - **Claim register:** `publication/options-risk-study/CLAIM-REGISTER.md`
@@ -70,7 +72,7 @@ procedure. A pass establishes *artifact integrity at that commit* — not perfor
 ## 4. ML Sentiment Augmented Price Predictor
 
 - **Repository:** [`jmiaie/ML_Sentiment_Augmented_Price_Predictor`](https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor)
-- **Current canonical `main` head:** `77a2390c460f2c609e5a39c36feed7da56a794e3`
+- **Canonical `main` head at time of writing** (verify the current value with `git ls-remote`): `77a2390c460f2c609e5a39c36feed7da56a794e3`
 - **Technical paper:** `publication/sentiment-study/TECHNICAL-PAPER.md`
 - **Case study:** `publication/sentiment-study/CASE-STUDY.md`
 - **Claim register:** `publication/sentiment-study/CLAIM-REGISTER.md`

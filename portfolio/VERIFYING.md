@@ -11,6 +11,12 @@ the original study, no re-fitting. Each one **fails closed** — if an artifact 
 fails with a named reason rather than silently passing. Verification does not require trusting
 this hub page: every command below was executed against a fresh clone of the SHA shown.
 
+**Dependencies.** Verification requirements are repository-specific: the Statistical Arbitrage
+Engine and ML Sentiment packs verify with the standard library alone, while the Financial
+Dynamics Model pack needs its `requirements.txt` plus `PyYAML`, and the Options Volatility Risk
+Lab pack needs `.[dev,viz]` (matplotlib). CI workflow included; repository Actions are currently
+disabled pending owner activation. Local verification instructions are provided.
+
 ## Commands
 
 | Pack | Repository | Verified at |
@@ -58,7 +64,7 @@ publication-pack check OK: 13 artifact hashes, 4 generated files, 11 map citatio
 claim cross-check OK: 101 independent assertions passed
 ```
 
-Verifiers are pure standard library — no install step, no virtualenv.
+This pack's verifiers are pure standard library — no install step, no virtualenv. That is a property of this pack, not of the packs in general: the Financial Dynamics Model and Options Volatility Risk Lab packs both require a documented install step, given in their entries above and below.
 
 ### Options Volatility Risk Lab
 
@@ -94,7 +100,7 @@ check OK: 18 declared artifact hashes verified, 4 generated files byte-identical
 claim cross-check OK: 178 independent assertions passed
 ```
 
-Pack verifiers are pure standard library. The repository's own suite is
+This pack's verifiers are pure standard library. The repository's own suite is
 `python -m pip install -e ".[dev,data]"` then `ruff check .`, `mypy src tests`, `pytest`.
 A shallow clone will break the package build — clone with full history.
 

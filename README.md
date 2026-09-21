@@ -13,7 +13,12 @@ This repository intentionally includes:
 - reusable research utilities and research scaffolding
 - synthetic data generation and openly specified examples
 - risk, portfolio, and regime-analysis building blocks
-- validation standards, contributor guidance, tests, and CI
+- validation standards, contributor guidance, tests, and a CI workflow
+
+> **CI status:** a CI workflow is included in this repository. GitHub Actions is currently
+> **disabled on this repository pending owner activation**, so no CI run has executed here.
+> Every verification claim on this hub was produced by local runs of the commands in
+> [portfolio/VERIFYING.md](portfolio/VERIFYING.md) at the SHAs shown there.
 
 This repository intentionally excludes:
 
@@ -76,7 +81,7 @@ See the detailed methodology under [research/methodology](research/methodology/)
 
 ```text
 .
-├── .github/workflows/ci.yml
+├── .github/workflows/ci.yml    # included; Actions currently disabled on this repository
 ├── docs/
 ├── examples/
 │   └── synthetic_regime_momentum.py
