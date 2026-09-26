@@ -37,7 +37,7 @@ The repository now contains both a deterministic synthetic methodology harness a
 
 ## Validation
 
-Source-repository tests cover calendar alignment, features, modeling, and validation helpers. The synthetic runner writes an artifact explicitly labeled as synthetic methodology validation and must not be read as historical evidence. The publication pack under `publication/sentiment-study/` adds standard-library verifiers that re-check declared artifact hashes, byte-identical regeneration, and map citations — see [Verifying a Pack](VERIFYING.md).
+Source-repository tests cover calendar alignment, features, modeling, and validation helpers. The synthetic runner writes an artifact explicitly labeled as synthetic methodology validation and must not be read as historical evidence. The reproducibility bundle under `publication/sentiment-study/` adds standard-library verifiers that re-check declared artifact hashes, byte-identical regeneration, and map citations — see [Reproducing the Results](VERIFYING.md).
 
 ## Risk & Limitations
 
@@ -64,5 +64,5 @@ Historical filing-text evaluation + methodology harness — point-in-time / no-l
 ## Repository
 
 - Portfolio summary: this page
-- Verification: [Verifying a Pack](VERIFYING.md)
+- Verification: [Reproducing the Results](VERIFYING.md)
 - Source repository: https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor
