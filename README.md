@@ -2,37 +2,31 @@
 
 Systematic Research • Financial Modeling • Risk Analytics • Python Engineering
 
-Applied quantitative-finance research portfolio focused on systematic trading, market regime modeling, portfolio risk, derivatives, financial machine learning, and AI-assisted research workflows. This repository is a curated hub for flagship projects, research standards, validation methodology, and selected public-safe research artifacts built with a production-oriented Python mindset.
+Independent quantitative-finance research across market regimes, statistical arbitrage, derivatives risk, and financial machine learning. Each project is a separate repository with its own tests, a pre-specified historical study, and an offline check that reproduces every reported number from committed artifacts.
 
-This repository is intended for review by hiring managers and collaborators who want to see how I structure research, reason about risk, and build reproducible analysis code. It is deliberately designed to demonstrate research quality **without** exposing proprietary trading rules, live integrations, credentials, or production execution details.
+## Headline findings
 
-## Public-safe / IP boundary
+| Project | What was tested | Result |
+| --- | --- | --- |
+| Financial Dynamics Model | Do Bayesian regime labels separate forward risk on a 2025 holdout? | Risk characteristics differ measurably across regimes (descriptive); no predictive edge claimed. |
+| Statistical Arbitrage Engine | Does a cointegration + FDR-controlled pair screen find tradable pairs in 2025? | **Null:** 3 walk-forward windows × 55 tests, 0 FDR survivors, 0 trades. Multiple-testing control declined to certify any pair. |
+| Options Volatility Risk Lab | How do VaR/ES methods and discrete delta hedging behave on real 2015–2025 SPY paths? | Kupiec/Christoffersen-backtested comparison on a hypothetical book; an earlier method-divergence finding was traced to a volatility-units bug and withdrawn. |
+| Sentiment study | Does filing-text sentiment add information beyond market-only features? | **Failure to demonstrate:** Δ log loss +0.0041, 95% CI [−0.0049, +0.0108], n = 197 — too small to rule out a small effect. |
 
-This repository intentionally includes:
-
-- reusable research utilities and research scaffolding
-- synthetic data generation and openly specified examples
-- risk, portfolio, and regime-analysis building blocks
-- validation standards, contributor guidance, tests, and CI
-
-This repository intentionally excludes:
-
-- proprietary signal definitions and production thresholds
-- broker credentials, API keys, or private datasets
-- live trading or order-routing integrations
-- production execution playbooks or operational secrets
+Null and negative results are reported as found. Full write-ups, evidence links, and reproduction commands: [research/publications.md](research/publications.md).
 
 ## Flagship Projects
 
 | Project | Research Domain | Core Methods | Engineering | Status | Repository |
 | --- | --- | --- | --- | --- | --- |
-| Financial Dynamics Model | Market regime modeling and forecasting | Bayesian inference, financial time-series feature engineering, Markov transitions, calibration, forecasting | Production-oriented Python architecture, benchmarking, visualization, backtesting | `Active` | [Portfolio page](portfolio/financial-dynamics-model.md) · [GitHub](https://github.com/jmiaie/financial-dynamics-model) |
-| Statistical Arbitrage Engine | Statistical arbitrage and execution research | Pair screening, Engle-Granger cointegration, ADF testing, hedge-ratio estimation, spread modeling, z-score signals, half-life estimation | Event-driven backtesting, simulated execution, paper-trading architecture on `main` | `Available` (research engine) | [Portfolio page](portfolio/statistical-arbitrage-engine.md) · [GitHub](https://github.com/jmiaie/Advanced_Algorithmic_Trading_Simulator_public) |
-| Options Volatility Risk Lab | Derivatives, volatility, and portfolio risk research | Black-Scholes-Merton, implied volatility, Greeks, Monte Carlo pricing, hedging, portfolio Greeks, stress testing, VaR/ES | Implemented Python analytics modules (dashboard deferred) | `Available` | [Portfolio page](portfolio/options-volatility-risk-lab.md) · [GitHub](https://github.com/jmiaie/options-volatility-risk-lab) |
-| ML Sentiment Augmented Price Predictor | Financial ML methodology harness | Point-in-time sentiment alignment, no-leakage features, expanding-window walk-forward, temporal ablations, synthetic methodology runner | Lean validation package with CI and deterministic synthetic artifacts | `Methodology harness` | [Portfolio page](portfolio/ml-sentiment-augmented-price-predictor.md) · [GitHub](https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor) |
-| Quant Research Scaffold | Public-safe reusable research code | Synthetic data generation, feature engineering, lagged backtesting, inverse-volatility portfolio construction, volatility-regime classification | Lightweight Python package, automated tests, CI, reproducible examples | `Available in this repo` | [`src/quant_research/`](src/quant_research/) · [`examples/synthetic_regime_momentum.py`](examples/synthetic_regime_momentum.py) |
+| Financial Dynamics Model | Market regime modeling and forecasting | Bayesian inference, financial time-series feature engineering, Markov transitions, calibration, forecasting | Typed, tested Python package; benchmarking, visualization, backtesting | Final 2025 holdout characterization | [Portfolio page](portfolio/financial-dynamics-model.md) · [GitHub](https://github.com/jmiaie/financial-dynamics-model) |
+| Statistical Arbitrage Engine | Statistical arbitrage and execution research | Pair screening, Engle-Granger cointegration, ADF testing, hedge-ratio estimation, spread modeling, z-score signals, half-life estimation | Event-driven backtesting, simulated execution, paper-trading architecture on `main` | 2025 walk-forward evaluation — no qualifying pairs / no trades | [Portfolio page](portfolio/statistical-arbitrage-engine.md) · [GitHub](https://github.com/jmiaie/Advanced_Algorithmic_Trading_Simulator_public) |
+| Options Volatility Risk Lab | Derivatives, volatility, and portfolio risk research | Black-Scholes-Merton, implied volatility, Greeks, Monte Carlo pricing, hedging, portfolio Greeks, stress testing, VaR/ES | Implemented Python analytics modules (dashboard deferred) | Historical risk evaluation | [Portfolio page](portfolio/options-volatility-risk-lab.md) · [GitHub](https://github.com/jmiaie/options-volatility-risk-lab) |
+| ML Sentiment Augmented Price Predictor | Financial ML / filing-text evaluation | Point-in-time sentiment alignment, no-leakage features, expanding-window walk-forward, temporal ablations, synthetic methodology runner | Lean validation package with CI and deterministic synthetic artifacts | Historical filing-text evaluation + methodology harness | [Portfolio page](portfolio/ml-sentiment-augmented-price-predictor.md) · [GitHub](https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor) |
 
-Numerical results referenced by linked repositories should be treated as project-reported until independently reproduced through this portfolio's standardized validation framework. Hub status labels describe engineering availability and methodology posture only — they do **not** assert empirical out-of-sample trading performance.
+Figures are project-reported until independently reproduced (see [Reproducing the Results](portfolio/VERIFYING.md)). Status labels describe what was evaluated and how; none asserts live or out-of-sample trading performance. Passing a project's reproducibility check establishes that its artifacts are consistent at the cited commit, not that the strategy has predictive or economic value.
+
+Supporting code in this repository: [`src/quant_research/`](src/quant_research/) — a small tested package (synthetic data, features, lagged backtest, inverse-volatility sizing, volatility regimes) with a runnable [example](examples/synthetic_regime_momentum.py).
 
 ## Research Capabilities
 
@@ -118,6 +112,8 @@ The example uses deterministic synthetic price series, computes momentum feature
 
 ## Quality checks
 
+Run locally (GitHub Actions is not enabled on this repository):
+
 ```bash
 python -m ruff check .
 python -m mypy src
@@ -130,7 +126,7 @@ python -m pytest
 - Tests should stay deterministic and avoid network calls.
 - Generated notebook outputs, large datasets, and local artifacts should not be committed.
 - New public examples should document their data assumptions and research limitations.
-- Each flagship project ships a publication pack that a reviewer can reproduce and check from a fresh clone: see [portfolio/VERIFYING.md](portfolio/VERIFYING.md).
+- Each flagship project ships a reproducibility bundle that a reviewer can check from a fresh clone: see [portfolio/VERIFYING.md](portfolio/VERIFYING.md).
 
 ## Technology
 

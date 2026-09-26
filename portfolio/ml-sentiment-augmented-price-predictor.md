@@ -12,7 +12,7 @@ Sentiment features are easy to misuse: publication latency, session boundaries, 
 
 ## Quantitative Methodology
 
-This page describes a **methodology harness**, not a historical-alpha study:
+This page describes a **methodology harness** *and* an accepted **historical filing-text evaluation** (no historical alpha is claimed):
 
 - Point-in-time sentiment event schema (publication, ingestion, availability, timezone, model version, confidence, `effective_trading_timestamp`)
 - Deterministic US regular-hours session alignment (before-open, intraday, after-close, weekend/holiday mapping)
@@ -25,17 +25,26 @@ This page describes a **methodology harness**, not a historical-alpha study:
 
 ## Data
 
-Current public workflows use deterministic **synthetic** methodology validation. Historical results remain pending a reproducible point-in-time dataset. No paid APIs, credentials, network downloads, or GPU requirements are required for CI.
+The repository now contains both a deterministic synthetic methodology harness and an accepted historical filing-text evaluation. The study uses a documented twelve-issuer SEC filing corpus and corresponding market data. The 2025 block is a previously inspected / historical evaluation (**n = 197**), not an untouched holdout. No paid APIs, credentials, network downloads, or GPU requirements are required for CI.
+
+## Evaluation Status
+
+- **Evaluation classification: PREVIOUSLY INSPECTED / HISTORICAL EVALUATION** — not an untouched holdout.
+- **Two evidence layers.** A deterministic **synthetic methodology harness**, and an accepted **historical filing-text evaluation** over a documented twelve-issuer SEC filing corpus (2,349 filing events) with corresponding market data.
+- **2025 primary result (n = 197).** Adding Loughran-McDonald filing-text features did **not** demonstrate incremental predictive value beyond the market-only feature set under the pre-specified log-loss comparison: delta log loss (m3 - m1) `+0.0040902`, block-bootstrap 95% interval `[-0.0048506, +0.0108001]` (**includes zero**); balanced-accuracy delta `-0.0274725275`.
+- **Not claimed:** that filing text is universally useless or harmful; that the market-only model is proven predictive; or that the effect is proven exactly zero.
+- No historical alpha is claimed. The synthetic harness remains useful as methodology validation, but it is no longer the repository's only evidence layer.
 
 ## Validation
 
-Source-repository tests cover calendar alignment, features, modeling, and validation helpers. The synthetic runner writes an artifact explicitly labeled as synthetic methodology validation and must not be read as historical evidence. The publication pack under `publication/sentiment-study/` adds standard-library verifiers that re-check declared artifact hashes, byte-identical regeneration, and map citations — see [Verifying a Pack](VERIFYING.md).
+Source-repository tests cover calendar alignment, features, modeling, and validation helpers. The synthetic runner writes an artifact explicitly labeled as synthetic methodology validation and must not be read as historical evidence. The reproducibility bundle under `publication/sentiment-study/` adds standard-library verifiers that re-check declared artifact hashes, byte-identical regeneration, and map citations — see [Reproducing the Results](VERIFYING.md).
 
 ## Risk & Limitations
 
 - **No historical sentiment alpha is claimed.**
-- Synthetic ablation outputs validate methodology plumbing only.
-- Real point-in-time sentiment corpora, economic-performance headlines (e.g., Sharpe), and richer model families are out of scope until reproducible evidence exists.
+- Adding filing-text features did **not** demonstrate incremental predictive value over market-only features in the pre-specified 2025 comparison, and the confidence interval includes zero. That is a failure to demonstrate, **not** a claim that filing text is harmful or useless, and **not** a claim that the effect is exactly zero.
+- Synthetic ablation outputs validate methodology plumbing only; the historical study is the repository's accepted evidence layer.
+- Economic-performance headlines (e.g., Sharpe) remain out of scope: none is computed or claimed.
 - Session rules assume a documented US regular-hours calendar; other venues require explicit remapping.
 
 ## Engineering Architecture
@@ -44,16 +53,16 @@ Lean Python package (`quant_sentiment`) with CI, truthful README positioning, re
 
 ## Current Status
 
-`Methodology harness` — point-in-time / no-leakage / ablation framework on `main`; no historical alpha claims.
+Historical filing-text evaluation + methodology harness — point-in-time / no-leakage / ablation framework and an accepted historical filing-text study on `main`; no historical alpha claims.
 
 ## Planned Improvements
 
-- Reproducible point-in-time historical dataset integration (when available)
+- Extend the accepted historical filing-text study to further point-in-time corpora where reproducible data exists
 - Extended model families only with matching leakage and ablation controls
 - Stronger calibration and uncertainty reporting under hub methodology standards
 
 ## Repository
 
 - Portfolio summary: this page
-- Verification: [Verifying a Pack](VERIFYING.md)
+- Verification: [Reproducing the Results](VERIFYING.md)
 - Source repository: https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor
