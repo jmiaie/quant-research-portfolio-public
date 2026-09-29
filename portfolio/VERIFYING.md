@@ -20,10 +20,10 @@ Lab bundle needs `.[dev,viz]` (matplotlib).
 
 | Project | Repository | Verified at |
 |---|---|---|
-| Financial Dynamics Model | [`financial-dynamics-model`](https://github.com/jmiaie/financial-dynamics-model) | `2b0a919e4500dabda3c0b6430494361a50d36e4f` |
-| Statistical Arbitrage Engine | [`Advanced_Algorithmic_Trading_Simulator_public`](https://github.com/jmiaie/Advanced_Algorithmic_Trading_Simulator_public) | `372d5571ca72913ed0c69c53337473ffe63f8c94` |
-| Options Volatility Risk Lab | [`options-volatility-risk-lab`](https://github.com/jmiaie/options-volatility-risk-lab) | `8d7f761d6ece8276b529c8ebfaa1cfc32dd74b91` |
-| ML Sentiment Augmented Price Predictor | [`ML_Sentiment_Augmented_Price_Predictor`](https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor) | `77a2390c460f2c609e5a39c36feed7da56a794e3` |
+| Financial Dynamics Model | [`financial-dynamics-model`](https://github.com/jmiaie/financial-dynamics-model) | `025d907bd9e77a4f513047c10dfff38229862ef9` |
+| Statistical Arbitrage Engine | [`Advanced_Algorithmic_Trading_Simulator_public`](https://github.com/jmiaie/Advanced_Algorithmic_Trading_Simulator_public) | `6974344cb2bc5d37504ae416628ab19902a3888a` |
+| Options Volatility Risk Lab | [`options-volatility-risk-lab`](https://github.com/jmiaie/options-volatility-risk-lab) | `3ef2516ad88c7f68228070b8e8ff6a549235b3a6` |
+| ML Sentiment Augmented Price Predictor | [`ML_Sentiment_Augmented_Price_Predictor`](https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor) | `e3ee0de7cec2f4e2ff981f88edc0dc1bcc5663e8` |
 
 Clone with full history (no `--depth`), check out the commit in the table (`git checkout <sha>`), then run from the repository root.
 
