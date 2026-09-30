@@ -23,7 +23,7 @@ Lab bundle needs `.[dev,viz]` (matplotlib).
 | Financial Dynamics Model | [`financial-dynamics-model`](https://github.com/jmiaie/financial-dynamics-model) | `025d907bd9e77a4f513047c10dfff38229862ef9` |
 | Statistical Arbitrage Engine | [`Advanced_Algorithmic_Trading_Simulator_public`](https://github.com/jmiaie/Advanced_Algorithmic_Trading_Simulator_public) | `6974344cb2bc5d37504ae416628ab19902a3888a` |
 | Options Volatility Risk Lab | [`options-volatility-risk-lab`](https://github.com/jmiaie/options-volatility-risk-lab) | `3ef2516ad88c7f68228070b8e8ff6a549235b3a6` |
-| ML Sentiment Augmented Price Predictor | [`ML_Sentiment_Augmented_Price_Predictor`](https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor) | `e3ee0de7cec2f4e2ff981f88edc0dc1bcc5663e8` |
+| ML Sentiment Augmented Price Predictor | [`ML_Sentiment_Augmented_Price_Predictor`](https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor) | `07164b8f3776d6c5bd87c65df4883d07ddda95f2` |
 
 Clone with full history (no `--depth`), check out the commit in the table (`git checkout <sha>`), then run from the repository root.
 
