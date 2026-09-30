@@ -74,7 +74,8 @@ See the detailed methodology under [research/methodology](research/methodology/)
 │   └── synthetic_regime_momentum.py
 ├── portfolio/
 ├── research/
-│   └── methodology/
+│   ├── methodology/
+│   └── publications.md
 ├── src/quant_research/
 │   ├── backtesting.py
 │   ├── data.py

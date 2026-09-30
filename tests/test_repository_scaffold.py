@@ -14,12 +14,15 @@ REQUIRED_FILES = [
     "research/methodology/backtesting-standards.md",
     "research/methodology/validation-framework.md",
     "research/methodology/model-risk-checklist.md",
+    "research/publications.md",
+    "docs/reviewer-guide.md",
     ".github/workflows/ci.yml",
 ]
 
 
 REQUIRED_README_SECTIONS = [
     "# Quantitative Finance Research Portfolio",
+    "## Headline findings",
     "## Flagship Projects",
     "## Research Capabilities",
     "## Research Standards",
@@ -39,3 +42,14 @@ def test_root_readme_contains_key_sections() -> None:
     readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
     for section in REQUIRED_README_SECTIONS:
         assert section in readme, section
+
+
+def test_publications_index_lists_four_flagships() -> None:
+    text = (REPO_ROOT / "research/publications.md").read_text(encoding="utf-8")
+    for name in (
+        "Financial Dynamics Model",
+        "Statistical Arbitrage Engine",
+        "Options Volatility Risk Lab",
+        "ML Sentiment Augmented Price Predictor",
+    ):
+        assert name in text, name
