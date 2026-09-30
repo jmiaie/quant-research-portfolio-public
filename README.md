@@ -26,6 +26,15 @@ Null and negative results are reported as found. Full write-ups, evidence links,
 
 Figures are project-reported until independently reproduced (see [Reproducing the Results](portfolio/VERIFYING.md)). Status labels describe what was evaluated and how; none asserts live or out-of-sample trading performance. Passing a project's reproducibility check establishes that its artifacts are consistent at the cited commit, not that the strategy has predictive or economic value.
 
+
+## Related / positioning — ML Sentiment chapter
+
+[`ML_Sentiment_Augmented_Price_Predictor`](https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor) is the hub's **sentiment methodology sibling**: point-in-time filing-text alignment, leakage controls, and ablation harness under the same research standards as the other flagships.
+
+- Portfolio page: [ml-sentiment-augmented-price-predictor.md](portfolio/ml-sentiment-augmented-price-predictor.md)
+- Headline result (also in the table above): **failure to demonstrate** incremental predictive value for the pre-specified 2025 comparison — not a claim of alpha, and not a claim that filing text is universally useless.
+- Empty `_private` / `_public` name-hold twins are **not** alternate methodology trees; the single canonical source repo is linked above.
+
 Supporting code in this repository: [`src/quant_research/`](src/quant_research/) — a small tested package (synthetic data, features, lagged backtest, inverse-volatility sizing, volatility regimes) with a runnable [example](examples/synthetic_regime_momentum.py).
 
 ## Research Capabilities
