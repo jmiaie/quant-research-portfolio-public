@@ -16,11 +16,26 @@ require a documented install step (see [Reproducing the Results](../portfolio/VE
 on each repository's `main` branch. Each study was independently reviewed; the reviewed
 commit is listed below and all links are pinned to it, so they will not drift.
 
-**How to reproduce any study.** Clone the repository, check out the canonical head listed below,
+**How to verify the publication artifacts.** Clone the repository, check out the canonical head listed below,
 then run that project's reproduction entrypoint (offline — no network, no credentials; the
-install step is repository-specific and given in the Reproducing the Results entry for that project). A passing run reproduces the committed tables and figures byte-identically and
-re-checks every cited artifact hash. See [Reproducing the Results](../portfolio/VERIFYING.md) for the general
+install step is repository-specific and given in the Reproducing the Results entry for that project). A passing run checks source hashes and generated outputs under the selected verifier's contract. Raster rendering depends on the software and font environment; see the rendering qualification in the verification guide. See [Reproducing the Results](../portfolio/VERIFYING.md) for the general
 procedure. A pass establishes *artifact integrity at that commit* — not performance.
+
+## Post-publication correction and reproduction scope
+
+The reviewed commits below remain fixed reference points. Current library code may
+contain later corrections and is not automatically the producing code for these artifacts.
+In particular, [stat-arb PR #13](https://github.com/jmiaie/Advanced_Algorithmic_Trading_Simulator_public/pull/13)
+corrected the Benjamini-Hochberg step-up rejection rule after publication.
+For fixed p-values, the old and corrected rules agree on whether any rejection exists,
+so the three 2025 zero-survivor/no-trade windows are unchanged. Selected-pair identities
+in earlier nonzero-survivor windows may differ; their corrected-code impact has not
+been reproduced from the frozen raw inputs. Preserve the published artifacts and run
+any impact evaluation under a separate experiment identity.
+
+Publication verification uses committed results. It does not rerun the empirical studies
+from raw vendor inputs. Strict end-to-end reproduction requires the original frozen files,
+their verified manifest hashes, and the recorded producing code and environment.
 
 ---
 
