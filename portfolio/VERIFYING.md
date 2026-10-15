@@ -6,15 +6,36 @@ Each flagship project ships a **reproducibility bundle**: a self-contained direc
 tables, figures, claim-to-evidence tables, and source maps, plus a verifier that re-derives every
 cited number and hash from the committed artifacts.
 
-The verifiers are **offline and deterministic**: no network, no credentials, no re-running of
+The publication verifiers run **offline**: no network, no credentials, no re-running of
 the original study, no re-fitting. Each one **fails closed** — if an artifact drifts, the check
 fails with a named reason rather than silently passing. Verification does not require trusting
-this hub page: every command below was executed against a fresh clone of the SHA shown.
+this hub page: the table records previously verified commits, not a fresh verification of current main.
 
 **Dependencies.** Verification requirements are repository-specific: the Statistical Arbitrage
 Engine and ML Sentiment bundles verify with the standard library alone, while the Financial
 Dynamics Model bundle needs its `requirements.txt` plus `PyYAML`, and the Options Volatility Risk
 Lab bundle needs `.[dev,viz]` (matplotlib). 
+
+## Rendering qualification and scope
+
+The commands below verify committed publication artifacts; they do not execute the
+historical studies from raw data. The raw vendor files are gitignored and must be
+restored and hash-checked separately for end-to-end reproduction.
+
+FDM and Options use raster figures. Cross-environment rendering discrepancies have
+been reported even when source tables and artifact hashes agree. Local remediation
+checks on 2026-10-15 obtained byte-identical figures with the pinned publication
+dependencies (Matplotlib 3.11.2, NumPy 2.5.3, Pillow 12.3.0); those local
+remediation commits are not evidence of a completed remote CI run. A historical passing
+run is not a guarantee of byte-identical PNGs on a different host. Keep hash, numeric,
+and rendering outcomes separate; do not waive a failed rendering check or increase its
+tolerance merely to obtain a pass. Record the exact environment and verifier mode.
+The expected output below describes the recorded verification recipe, not an assertion
+that the rendering discrepancy has been resolved on every environment.
+
+The immutable reviewed commits in [the publication index](../research/publications.md)
+and the previously verified commits below serve different purposes. Neither table should
+be automatically advanced to current main without a new verification run.
 
 ## Commands
 
