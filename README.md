@@ -125,7 +125,7 @@ The example uses deterministic synthetic price series, computes momentum feature
 
 ## Quality checks
 
-CI runs these on every pull request and on pushes to `main` ([`.github/workflows/ci.yml`](.github/workflows/ci.yml), Python 3.11 and 3.12). To run them locally:
+The same checks are defined as a workflow in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) (Python 3.11 and 3.12), but GitHub Actions is currently disabled for this repository, so nothing runs them automatically yet. Run them locally:
 
 ```bash
 python -m ruff check .

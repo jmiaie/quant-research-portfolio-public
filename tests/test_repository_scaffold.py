@@ -58,7 +58,8 @@ def test_publications_index_lists_four_flagships() -> None:
 def test_readme_ci_statement_matches_workflow() -> None:
     readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
     assert (REPO_ROOT / ".github/workflows/ci.yml").is_file()
-    assert "GitHub Actions is not enabled" not in readme
+    # Actions is disabled for this repo; the README must not claim CI runs.
+    assert "currently disabled" in readme
     assert ".github/workflows/ci.yml" in readme
 
 
