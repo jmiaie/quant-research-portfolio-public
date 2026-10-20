@@ -8,7 +8,8 @@ version = "0.1.0"
 description = "Curated quantitative finance research portfolio and validation hub."
 readme = "README.md"
 requires-python = ">=3.11,<3.13"
-authors = [{ name = "jmiaie" }]
+license = { text = "Apache-2.0" }
+authors = [{ name = "Micap AI LLC", email = "contact@micap.pro" }]
 dependencies = [
   "numpy>=1.26,<3.0",
   "pandas>=2.2,<3.0",
