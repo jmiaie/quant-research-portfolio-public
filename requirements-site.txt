@@ -1,0 +1,4 @@
+# Research-site build dependencies (MkDocs). Kept separate from requirements-dev.txt
+# so the package CI does not need them. Exact pins for reproducible builds.
+mkdocs==1.6.1
+mkdocs-material==9.5.39
