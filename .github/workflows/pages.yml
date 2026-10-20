@@ -1,0 +1,77 @@
+name: Research site
+
+# Builds the MkDocs research site on every PR and push to main that touches it.
+# Deployment to GitHub Pages runs ONLY on a manual workflow_dispatch with deploy=true,
+# and only after the repository owner has enabled Pages with "GitHub Actions" as the
+# source (Settings -> Pages). Until then the deploy job is skipped. See
+# roadmap/research-site-roadmap.md.
+
+on:
+  pull_request:
+    paths:
+      - "website/**"
+      - "mkdocs.yml"
+      - "requirements-site.txt"
+      - ".github/workflows/pages.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "website/**"
+      - "mkdocs.yml"
+      - "requirements-site.txt"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Deploy the built site to GitHub Pages (requires Pages enabled)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install site dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-site.txt
+
+      - name: Build site (strict)
+        run: python -m mkdocs build --strict
+
+      - name: Upload Pages artifact
+        if: github.event_name == 'workflow_dispatch' && inputs.deploy
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

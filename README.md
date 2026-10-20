@@ -8,9 +8,9 @@ Independent quantitative-finance research across market regimes, statistical arb
 
 | Project | What was tested | Result |
 | --- | --- | --- |
-| Financial Dynamics Model | Do Bayesian regime labels separate forward risk on a 2025 holdout? | Risk characteristics differ measurably across regimes (descriptive); no predictive edge claimed. |
+| Financial Dynamics Model | Do Bayesian regime labels separate forward risk on a 2025 holdout? | Risk characteristics differ descriptively across regimes; not statistically significant — e.g. the 2025 `RISK_OFF` cell (n = 29) has 90% block-bootstrap intervals that include zero. No predictive edge claimed. |
 | Statistical Arbitrage Engine | Does a cointegration + FDR-controlled pair screen find tradable pairs in 2025? | **Null:** 3 walk-forward windows × 55 tests, 0 FDR survivors, 0 trades. Multiple-testing control declined to certify any pair. |
-| Options Volatility Risk Lab | How do VaR/ES methods and discrete delta hedging behave on real 2015–2025 SPY paths? | Kupiec/Christoffersen-backtested comparison on a hypothetical book; an earlier method-divergence finding was traced to a volatility-units bug and withdrawn. |
+| Options Volatility Risk Lab | How do VaR/ES methods and discrete delta hedging behave on real 2015–2025 SPY paths? | VaR/ES method comparison on a hypothetical book, with Kupiec/Christoffersen coverage diagnostics on one forecast per monthly roll: n = 95 (2015–2023 development), n = 12 (2024), n = 12 (2025). At n = 12 these tests have very low power (rule of thumb ~250), so "fail to reject" is weak evidence of correct coverage. An earlier method-divergence finding was traced to a volatility-units bug and withdrawn. |
 | Sentiment study | Does filing-text sentiment add information beyond market-only features? | **Failure to demonstrate:** Δ log loss +0.0041, 95% CI [−0.0049, +0.0108], n = 197 — too small to rule out a small effect. |
 
 Null and negative results are reported as found. Full write-ups, evidence links, and reproduction commands: [research/publications.md](research/publications.md).
@@ -78,6 +78,7 @@ See the detailed methodology under [research/methodology](research/methodology/)
 ```text
 .
 ├── .github/workflows/ci.yml
+├── .github/workflows/pages.yml
 ├── docs/
 ├── examples/
 │   └── synthetic_regime_momentum.py
@@ -93,7 +94,9 @@ See the detailed methodology under [research/methodology](research/methodology/)
 │   ├── portfolio.py
 │   └── regimes.py
 ├── tests/
+├── website/            # research-site sources (MkDocs)
 ├── CONTRIBUTING.md
+├── mkdocs.yml
 ├── pyproject.toml
 └── requirements-dev.txt
 ```
@@ -122,7 +125,7 @@ The example uses deterministic synthetic price series, computes momentum feature
 
 ## Quality checks
 
-Run locally (GitHub Actions is not enabled on this repository):
+CI runs these on every pull request and on pushes to `main` ([`.github/workflows/ci.yml`](.github/workflows/ci.yml), Python 3.11 and 3.12). To run them locally:
 
 ```bash
 python -m ruff check .
@@ -147,6 +150,8 @@ Python, NumPy, pandas, Pytest, Ruff, mypy, GitHub Actions, Markdown, and reprodu
 - **Phase 1 — Reproduce and validate existing research:** standardize replication, benchmarking, and evidence quality across current flagship projects.
 - **Phase 2 — Upgrade execution and statistical rigor:** improve walk-forward testing, transaction-cost realism, attribution, and uncertainty analysis.
 - **Phase 3 — Expand into derivatives, portfolio risk, optimization, and financial ML:** build self-contained new research modules with reusable analytics and reporting standards.
+
+Public research site, verification badge, `options-risk` packaging and an implied-vol surface study: [research-site roadmap](roadmap/research-site-roadmap.md) and [PRD](docs/PRD.md). Build the site locally with `python -m pip install -r requirements-site.txt && python -m mkdocs build --strict`.
 
 ## About
 

@@ -53,3 +53,20 @@ def test_publications_index_lists_four_flagships() -> None:
         "ML Sentiment Augmented Price Predictor",
     ):
         assert name in text, name
+
+
+def test_readme_ci_statement_matches_workflow() -> None:
+    readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+    assert (REPO_ROOT / ".github/workflows/ci.yml").is_file()
+    assert "GitHub Actions is not enabled" not in readme
+    assert ".github/workflows/ci.yml" in readme
+
+
+def test_readme_does_not_overstate_headline_findings() -> None:
+    readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+    # FDM: bootstrap intervals include zero, so the difference is descriptive only.
+    assert "differ measurably" not in readme
+    assert "not statistically significant" in readme
+    # Options lab: coverage tests on 12 monthly forecasts must state the sample size.
+    assert "n = 12" in readme
+    assert "low power" in readme

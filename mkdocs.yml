@@ -1,0 +1,66 @@
+# Research site scaffold (MkDocs + Material). See docs/PRD.md and
+# roadmap/research-site-roadmap.md. Build locally with:
+#   python -m pip install -r requirements-site.txt
+#   python -m mkdocs build --strict
+# Nothing is deployed from this config by itself; see .github/workflows/pages.yml.
+site_name: Quantitative Finance Research
+site_description: >-
+  Four pre-specified quantitative-finance studies, each with a technical paper and an
+  offline verifier that reproduces every cited number from committed artifacts.
+site_author: Jeff Milam
+# ASSUMPTION: default GitHub Pages project URL; confirm or replace with a custom domain.
+site_url: https://jmiaie.github.io/quant-research-portfolio-public/
+repo_url: https://github.com/jmiaie/quant-research-portfolio-public
+repo_name: jmiaie/quant-research-portfolio-public
+edit_uri: ""
+
+# The site sources live in website/ so that internal planning docs in docs/
+# (PRD, reviewer guide, philosophy) are not published by accident.
+docs_dir: website
+site_dir: _site
+
+theme:
+  name: material
+  # No Google Fonts: the site loads no third-party resources at view time.
+  font: false
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Studies:
+      - Financial Dynamics Model: studies/financial-dynamics-model.md
+      - Statistical Arbitrage Engine: studies/statistical-arbitrage-engine.md
+      - Options Volatility Risk Lab: studies/options-volatility-risk-lab.md
+      - ML Sentiment Study: studies/ml-sentiment.md
+  - How verification works: verification.md
+
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+  links:
+    not_found: warn
+    absolute_links: warn
+    unrecognized_links: warn
