@@ -2,7 +2,7 @@
 
 Systematic Research • Financial Modeling • Risk Analytics • Python Engineering
 
-Independent quantitative-finance research across market regimes, statistical arbitrage, derivatives risk, and financial machine learning. Each project is a separate repository with its own tests, a pre-specified historical study, and an offline check that reproduces every reported number from committed artifacts.
+Independent quantitative-finance research across market regimes, statistical arbitrage, derivatives risk, and financial machine learning. Each project is a separate repository with its own tests, a pre-specified historical study, and an offline check that verifies every reported number against committed artifacts.
 
 ## Headline findings
 
@@ -140,7 +140,7 @@ python -m pytest
 
 ## Technology
 
-Python, NumPy, pandas, Pytest, Ruff, mypy, GitHub Actions, Markdown, and reproducible research workflows. Additional linked projects may use broader scientific Python and market-data tooling where documented in their own repositories.
+Python, NumPy, pandas, Pytest, Ruff, mypy, GitHub Actions (in the project repositories), Markdown, and reproducible research workflows. Additional linked projects may use broader scientific Python and market-data tooling where documented in their own repositories.
 
 ## Research Roadmap
 
@@ -150,7 +150,11 @@ Python, NumPy, pandas, Pytest, Ruff, mypy, GitHub Actions, Markdown, and reprodu
 
 ## About
 
-**Jeff Milam, MBA**  
-Quantitative Finance | AI Engineering | Technical Transformation
+**Micap AI LLC** — independent quantitative research  
+Contact: contact@micap.pro · GitHub: https://github.com/jmiaie
 
-GitHub: https://github.com/jmiaie
+**How this was built.** Research questions, study designs and acceptance criteria are set by Micap AI. Implementation, testing and review are carried out with AI coding and review agents, with separate author, reviewer and verifier roles and fail-closed checks. Every reported number is checked against committed artifacts.
+
+## License
+
+Apache-2.0 — see [LICENSE](LICENSE). © 2026 Micap AI LLC.
