@@ -78,6 +78,7 @@ See the detailed methodology under [research/methodology](research/methodology/)
 ```text
 .
 ├── .github/workflows/ci.yml
+├── .github/workflows/pages.yml
 ├── docs/
 ├── examples/
 │   └── synthetic_regime_momentum.py
@@ -93,7 +94,9 @@ See the detailed methodology under [research/methodology](research/methodology/)
 │   ├── portfolio.py
 │   └── regimes.py
 ├── tests/
+├── website/            # research-site sources (MkDocs)
 ├── CONTRIBUTING.md
+├── mkdocs.yml
 ├── pyproject.toml
 └── requirements-dev.txt
 ```
@@ -147,6 +150,8 @@ Python, NumPy, pandas, Pytest, Ruff, mypy, GitHub Actions (in the project reposi
 - **Phase 1 — Reproduce and validate existing research:** standardize replication, benchmarking, and evidence quality across current flagship projects.
 - **Phase 2 — Upgrade execution and statistical rigor:** improve walk-forward testing, transaction-cost realism, attribution, and uncertainty analysis.
 - **Phase 3 — Expand into derivatives, portfolio risk, optimization, and financial ML:** build self-contained new research modules with reusable analytics and reporting standards.
+
+The research site sources are in `website/`. Build it locally with `python -m pip install -r requirements-site.txt && python -m mkdocs build --strict`.
 
 ## About
 
