@@ -6,15 +6,33 @@ Each flagship project ships a **reproducibility bundle**: a self-contained direc
 tables, figures, claim-to-evidence tables, and source maps, plus a verifier that re-derives every
 cited number and hash from the committed artifacts.
 
-The verifiers are **offline and deterministic**: no network, no credentials, no re-running of
+The publication verifiers run **offline**: no network, no credentials, no re-running of
 the original study, no re-fitting. Each one **fails closed** — if an artifact drifts, the check
 fails with a named reason rather than silently passing. Verification does not require trusting
-this hub page: every command below was executed against a fresh clone of the SHA shown.
+this hub page: the table records the commits that were verified, not a fresh verification of
+current `main`.
 
 **Dependencies.** Verification requirements are repository-specific: the Statistical Arbitrage
 Engine and ML Sentiment bundles verify with the standard library alone, while the Financial
 Dynamics Model bundle needs its `requirements.txt` plus `PyYAML`, and the Options Volatility Risk
 Lab bundle needs `.[dev,viz]` (matplotlib). 
+
+## Rendering qualification and scope
+
+The commands below verify the committed publication artifacts. They do not re-run the historical
+studies from raw data: the raw vendor files are not in the repositories and must be restored and
+hash-checked separately for an end-to-end reproduction.
+
+The Financial Dynamics Model and Options Volatility Risk Lab bundles include raster figures. PNG
+bytes depend on the Matplotlib version and on the system font and rasterisation libraries, so a
+figure can differ between machines even when every source table and artifact hash agrees. Install
+the pinned publication requirements before running those two verifiers. Treat hash, numeric and
+rendering outcomes as separate results; a failed rendering check is not waived by the others, and
+its tolerance should not be raised to obtain a pass.
+
+The reviewed commits in [the publication index](../research/publications.md) and the verified
+commits below serve different purposes. Neither should be advanced to current `main` without a new
+verification run.
 
 ## Commands
 
