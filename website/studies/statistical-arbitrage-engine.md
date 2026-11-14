@@ -28,6 +28,10 @@ tradable pairs, evaluated with an event-driven, cost-aware backtest?
   a pair in only four windows, all before 2025.
 - No 2025 return, Sharpe, drawdown or turnover exists, and none is estimated.
 
+**What this test could detect.** In simulation the screen finds a truly cointegrated pair 98% of the
+time at a 5-day spread half-life and 4% of the time at 20 days. See
+[What the tests could detect](../power.md).
+
 ## Corrections since publication
 
 - The position-sizing code does not trade the tested spread, and the backtest charges no exit cost at

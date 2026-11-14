@@ -68,6 +68,7 @@ nav:
       - Statistical Arbitrage Engine: studies/statistical-arbitrage-engine.md
       - Options Volatility Risk Lab: studies/options-volatility-risk-lab.md
       - ML Sentiment Study: studies/ml-sentiment.md
+  - What the tests could detect: power.md
   - How verification works: verification.md
 
 validation:

@@ -526,3 +526,12 @@
   border-color: #cde2fb;
   color: #101d33;
 }
+
+.viz-svg .viz-s1-fill {
+  fill: var(--viz-s1);
+}
+
+.viz-svg .viz-target {
+  stroke: var(--site-axis);
+  stroke-width: 1;
+}

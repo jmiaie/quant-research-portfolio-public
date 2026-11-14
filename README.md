@@ -6,14 +6,14 @@ Independent quantitative-finance research across market regimes, statistical arb
 
 ## Headline findings
 
-| Project | What was tested | Result |
-| --- | --- | --- |
-| Financial Dynamics Model | Do Bayesian regime labels separate forward risk on a 2025 holdout? | Regime-conditional risk is reported descriptively. Whether the labels separate forward risk better than a simple trailing-volatility bucket has not been tested; no predictive edge claimed. |
-| Statistical Arbitrage Engine | Does a cointegration + FDR-controlled pair screen find tradable pairs in 2025? | **Null:** 3 walk-forward windows × 55 tests, 0 FDR survivors, 0 trades. No candidate met the pre-specified threshold, so the strategy rules opened no position. |
-| Options Volatility Risk Lab | How do VaR/ES methods and discrete delta hedging behave on real 2015–2025 SPY paths? | Kupiec/Christoffersen-backtested comparison on a hypothetical book; an earlier method-divergence finding was traced to a volatility-units bug and withdrawn. |
-| Sentiment study | Does filing-text sentiment add information beyond market-only features? | **Failure to demonstrate:** Δ log loss +0.0041, 95% CI [−0.0049, +0.0108], n = 197 — too small to rule out a small effect. |
+| Project | What was tested | Result | Could have detected (80% power) |
+| --- | --- | --- | --- |
+| Financial Dynamics Model | Do Bayesian regime labels separate forward risk on a 2025 holdout? | Regime-conditional risk is reported descriptively. Whether the labels separate forward risk better than a simple trailing-volatility bucket has not been tested; no predictive edge claimed. | Not applicable: descriptive, no pass/fail test. |
+| Statistical Arbitrage Engine | Does a cointegration + FDR-controlled pair screen find tradable pairs in 2025? | **Null:** 3 walk-forward windows × 55 tests, 0 FDR survivors, 0 trades. No candidate met the pre-specified threshold, so the strategy rules opened no position. | A pair with a spread half-life of about 5 trading days; almost nothing at 20 days or more. |
+| Options Volatility Risk Lab | How do VaR/ES methods and discrete delta hedging behave on real 2015–2025 SPY paths? | Kupiec/Christoffersen-backtested comparison on a hypothetical book; an earlier method-divergence finding was traced to a volatility-units bug and withdrawn. | A breach rate about 6.5× the target at n = 12, or 2.6× at n = 95; not a VaR wrong by 2×. |
+| Sentiment study | Does filing-text sentiment add information beyond market-only features? | **Failure to demonstrate:** Δ log loss +0.0041, 95% CI [−0.0049, +0.0108], n = 197 — too small to rule out a small effect. | A log-loss gain of at least 1.6% of baseline; smaller gains are not ruled out. |
 
-Null and negative results are reported as found. Full write-ups, evidence links, and reproduction commands: [research/publications.md](research/publications.md).
+Null and negative results are reported as found. What each null could and could not have detected: [research/how-informative-were-our-nulls.md](research/how-informative-were-our-nulls.md). Full write-ups, evidence links, and reproduction commands: [research/publications.md](research/publications.md).
 
 ## Flagship Projects
 

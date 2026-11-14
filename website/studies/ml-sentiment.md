@@ -18,6 +18,9 @@ market-only features for short-horizon returns, tested without leakage?
 - This is not a claim that filing text is useless, and not a claim that the effect is exactly zero:
   n = 197 is too small to rule out a small effect.
 
+**What this test could detect.** The design had 80% power only for log-loss gains of at least 1.6% of
+baseline. See [What the tests could detect](../power.md).
+
 ## Corrections since publication
 
 - The market-only comparison model had no skill on the primary target (log loss 0.69108 against a

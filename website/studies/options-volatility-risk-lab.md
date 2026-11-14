@@ -21,6 +21,9 @@ behave on real risk-factor paths?
   volatility-units defect.
 - No options-tape P&L and no live or deployed trading result is claimed.
 
+**What this test could detect.** With 12 forecasts the coverage test flags a VaR whose breach rate is
+double the target only 11% of the time. See [What the tests could detect](../power.md).
+
 ## Corrections since publication
 
 - The claim that realised volatility is "persistently low-biased" is not supported by the committed

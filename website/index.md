@@ -56,6 +56,15 @@ hide:
 
 These are independent research projects. None represents live trading or deployed capital.
 
+## How much could these tests see?
+
+A null result is only informative if the test could have found an effect. Each null study was
+followed by a power study, and the answers are not flattering: the stat-arb screen only detects
+mean reversion that completes within about a week, and twelve VaR forecasts a year cannot catch a
+model that is wrong by a factor of two.
+
+[What the tests could detect](power.md){ .md-button }
+
 ## How a claim gets checked
 
 <div class="pipeline" role="list">

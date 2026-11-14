@@ -25,6 +25,9 @@ contract, and re-checks every cited artifact hash. It uses the committed results
 the studies from raw vendor data. See [Reproducing the Results](../portfolio/VERIFYING.md) for the general
 procedure. A pass establishes *artifact integrity at that commit* — not performance.
 
+What each null result could and could not have detected is summarised in
+[How informative were our nulls?](how-informative-were-our-nulls.md).
+
 ## Corrections and known limitations (2026-11-14)
 
 A review of all four studies found statements that needed correcting. The frozen artifacts and
