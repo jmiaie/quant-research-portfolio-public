@@ -1,6 +1,6 @@
 # Financial Dynamics Model
 
-<div class="study-meta"><span class="pill">Descriptive</span><span>SPY · 2025 holdout · reviewed commit <code>86a843f</code></span></div>
+<div class="study-meta"><span class="pill">Descriptive, then tested</span><span>SPY primary, four ETFs for robustness · 2025 holdout · reviewed commit <code>86a843f</code></span></div>
 
 **Evaluation:** final 2025 holdout evaluation — a descriptive regime and risk characterization.
 
@@ -15,10 +15,12 @@ volatility, tail risk, drawdown, persistence) on SPY?
 --8<-- "fdm-interval.html"
 
 - Risk characteristics differ **descriptively** across regimes. The difference is **not
-  statistically significant**: for the 2025 `RISK_OFF` cell (n = 29), the paper's 90%
+  statistically significant**: for QQQ's 2025 `RISK_OFF` cell (n = 29), the paper's 90%
   moving-block and stationary bootstrap intervals for the 1-day forward return both include zero.
-- Whether the regime labels separate forward risk better than a simple trailing-volatility bucket has
-  **not been tested**.
+- **Follow-up test (2026-11-14).** As a forecaster of next-day variance, the regime labels are worse
+  than a simple quartile of trailing 20-day volatility (pooled five-ETF QLIKE difference +0.173,
+  p = 0.012) and only slightly better than no labels. The comparison was pre-specified; the data had
+  been inspected before, so it is not a holdout result. [Report](https://github.com/jmiaie/financial-dynamics-model/blob/main/research/vol_benchmark/REPORT.md).
 - No predictive edge, directional accuracy or trading alpha is claimed.
 - 174 sparse-cell bootstrap rows have an effective block size below the requested 20, so those
   intervals are degenerate or near-degenerate rather than evidence of stability.
@@ -26,7 +28,7 @@ volatility, tail risk, drawdown, persistence) on SPY?
 ## Corrections since publication
 
 - The earlier wording that risk "differs measurably across regimes" was never tested against a simple
-  volatility baseline. It is now described as untested.
+  volatility baseline. The follow-up test above has now run that comparison, and the baseline won.
 
 ## Read the paper
 

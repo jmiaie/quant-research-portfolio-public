@@ -34,7 +34,10 @@ A review of all four studies found statements that needed correcting. The frozen
 their hashes are unchanged; each repository records its corrections in a dated note under `docs/`.
 
 - **Financial Dynamics Model:** the claim that risk "differs measurably across regimes" was never
-  tested against a simple volatility baseline. It is now described as untested.
+  tested against a simple volatility baseline. A pre-specified follow-up test has now run it: as a
+  forecaster of next-day variance, the regime labels are worse than a quartile of trailing 20-day
+  volatility (pooled five-ETF QLIKE difference +0.173, p = 0.012) and only slightly better than no
+  labels ([report](https://github.com/jmiaie/financial-dynamics-model/blob/main/research/vol_benchmark/REPORT.md)). The data had been inspected before, so this is not a holdout result.
 - **Statistical Arbitrage Engine:** the position-sizing code does not trade the tested spread, and
   four development windows that traded have out-of-sample results the write-up did not report
   (`docs/known-defects-and-unreported-results.md`). The 2025 zero-trade result is not affected.

@@ -25,10 +25,10 @@ hide:
 
 <div class="card-grid">
 <a class="study-card" href="studies/financial-dynamics-model/">
-<span class="pill">Descriptive</span>
+<span class="pill">Descriptive, then tested</span>
 <span class="card-title">Financial Dynamics Model</span>
 <span class="card-question">Do Bayesian regime labels separate forward risk on a 2025 holdout?</span>
-<span class="card-figure"><span class="card-number">n = 29</span><span class="card-caption">risk-off days in 2025; both bootstrap intervals include zero</span></span>
+<span class="card-figure"><span class="card-number">p = 0.012</span><span class="card-caption">a simple volatility bucket forecast next-day variance better than the regime labels</span></span>
 <span class="card-more">Read the study →</span>
 </a>
 <a class="study-card" href="studies/statistical-arbitrage-engine/">

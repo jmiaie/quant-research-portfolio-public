@@ -54,8 +54,10 @@ either: the market-only model's 2025 log loss equals the majority baseline's to 
 ## Financial Dynamics Model
 
 This study is descriptive and made no pass/fail test, so it has no power study. Its open question
-is whether its regime labels separate forward risk better than a simple trailing-volatility bucket.
-That comparison has not been run.
+was whether its regime labels separate forward risk better than a simple trailing-volatility bucket.
+A pre-specified follow-up test has now run that comparison for next-day variance: the volatility
+bucket is better (p = 0.012), and the labels are only slightly better than no labels. The test could
+only detect a large gap, and the gap it found is large. [Report](https://github.com/jmiaie/financial-dynamics-model/blob/main/research/vol_benchmark/REPORT.md).
 
 The longer write-up, including what a more informative version of each study would need, is in the
 [hub repository](https://github.com/jmiaie/quant-research-portfolio-public/blob/main/research/how-informative-were-our-nulls.md).

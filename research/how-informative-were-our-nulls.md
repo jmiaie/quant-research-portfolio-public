@@ -19,8 +19,12 @@ production test code, and changed no published artifact.
 | ML Sentiment Study | Adding filing text did not lower log loss (n = 197) | An improvement of at least 0.0112 nats per event, 1.6% of the baseline log loss | Smaller improvements; the realised interval excludes gains above about 0.7% of baseline | [Report](https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor/blob/main/research/power/REPORT.md) |
 
 The Financial Dynamics Model study is descriptive and made no pass/fail test, so it has no power
-study. Its open question is different: whether its regime labels separate forward risk better than
-a simple trailing-volatility bucket. That comparison has not been run.
+study. Its open question was different: whether its regime labels separate forward risk better than
+a simple trailing-volatility bucket. A pre-specified follow-up test has now run that comparison for
+next-day variance. The volatility bucket is better (pooled five-ETF QLIKE difference +0.173,
+p = 0.012); the labels are only slightly better than no labels ([report](https://github.com/jmiaie/financial-dynamics-model/blob/main/research/vol_benchmark/REPORT.md)).
+That test could only detect a large gap (its minimum detectable effect was 91% of the volatility
+bucket's own gain), and the gap it found is large.
 
 ## What each result means
 
@@ -68,7 +72,7 @@ loss equals the majority baseline's to 0.00002 nats. And the published percentil
 | Statistical Arbitrage Engine | A larger universe including delisted ETFs, corrected position sizing, and positive controls such as SPY/IVV and GLD/IAU | The current design cannot answer its own question at realistic half-lives |
 | Options Volatility Risk Lab | A daily VaR/ES backtest with a volatility risk factor and an expected-shortfall test | Detectable mis-calibration falls from about 6.5 times to about 1.3 times |
 | ML Sentiment Study | A larger event set (on the order of 100,000 events) with a positive control | The detectable effect falls from 1.6% of baseline to well under 0.1% |
-| Financial Dynamics Model | Score the regime labels against a trailing-volatility bucket on forward risk | Replaces an untested description with a tested comparison |
+| Financial Dynamics Model | Done for next-day variance (2026-11-14). Still open: the same comparison on untouched data, and for drawdown or tail risk | The current result uses previously inspected data and one loss function |
 
-None of these has been run. They are listed so a reader can see what the published results do and
+Apart from the financial-dynamics comparison, none of these has been run. They are listed so a reader can see what the published results do and
 do not establish.
