@@ -47,12 +47,6 @@ rate about 1.26 times the target. [Power report](https://github.com/jmiaie/optio
 <div class="stat"><span class="stat-value">2,060</span><span class="stat-label">events needed to detect a 0.5% gain</span></div>
 </div>
 
-<div class="explorer">
-<span class="explorer-heading">Explore: how many events would it take?</span>
-<span class="explorer-sub">Smallest gain the published design could detect 80% of the time, scaled to a different number of events. This is a projection from the published standard error, not a new test.</span>
-<div data-explorer="sentiment" data-src="../assets/data/power.json"><p class="explorer-loading">Interactive chart: needs JavaScript. The figure above shows the headline numbers.</p></div>
-</div>
-
 Gains are improvements in log loss as a share of the baseline. The comparison model had no skill
 either: the market-only model's 2025 log loss equals the majority baseline's to 0.00002 nats.
 [Power report](https://github.com/jmiaie/ML_Sentiment_Augmented_Price_Predictor/blob/main/research/power/REPORT.md).
