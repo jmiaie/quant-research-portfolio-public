@@ -13,8 +13,10 @@ claim-to-evidence table, a data-provenance note, a result-source map, and an **o
 re-derives every cited figure, table, and hash from the committed artifacts. Dependencies are
 **repository-specific, not uniform**: two bundles verify with the standard library alone, two
 require a documented install step (see [Reproducing the Results](../portfolio/VERIFYING.md)). The bundles are
-on each repository's `main` branch. Each study was independently reviewed; the reviewed
-commit is listed below and all links are pinned to it, so they will not drift.
+on each repository's `main` branch. Each study was reviewed by separate AI review agents that
+received the artifacts and a neutral brief, with no access to the author's reasoning; no external
+human review has been performed yet. The reviewed commit is listed below and all links are pinned
+to it, so they will not drift.
 
 **How to reproduce any study.** Clone the repository, check out the canonical head listed below,
 then run that project's reproduction entrypoint (offline — no network, no credentials; the
