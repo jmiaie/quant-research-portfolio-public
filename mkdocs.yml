@@ -9,9 +9,8 @@ site_description: >-
 site_author: Micap AI LLC
 # Default GitHub Pages project URL. Replace if a custom domain is configured.
 site_url: https://jmiaie.github.io/quant-research-portfolio-public/
-repo_url: https://github.com/jmiaie/quant-research-portfolio-public
-repo_name: jmiaie/quant-research-portfolio-public
-edit_uri: ""
+# No repo_url: the theme would call api.github.com for repository stats on every page
+# view. The site makes no third-party requests; the source link is in the page text.
 copyright: "© 2026 Micap AI LLC. Research and educational material only; not investment advice."
 
 # The site sources live in website/ so that internal planning docs in docs/
@@ -21,6 +20,10 @@ site_dir: _site
 
 extra_css:
   - assets/site.css
+
+# Interactive charts on the power page. Local file, no third-party requests.
+extra_javascript:
+  - assets/explorer.js
 
 theme:
   name: material

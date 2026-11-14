@@ -15,6 +15,12 @@ the time. Each one froze its protocol before the full run and used the study's o
 
 --8<-- "statarb-power.html"
 
+<div class="explorer">
+<span class="explorer-heading">Explore: change the simulation setting</span>
+<span class="explorer-sub">All ten simulated settings from the power study. The shaded band is the 95% interval on each estimate (500 runs per point). Move over the chart to read a value.</span>
+<div data-explorer="statarb" data-src="../assets/data/power.json"><p class="explorer-loading">Interactive chart: needs JavaScript. The figure above shows the headline numbers.</p></div>
+</div>
+
 The 2025 result rules out a within-group ETF pair with week-scale mean reversion in a given window.
 It says almost nothing about slower mean reversion: zero survivors is the expected outcome whether
 or not such pairs exist. [Power report](https://github.com/jmiaie/Advanced_Algorithmic_Trading_Simulator_public/blob/main/research/power/REPORT.md).
@@ -22,6 +28,12 @@ or not such pairs exist. [Power report](https://github.com/jmiaie/Advanced_Algor
 ## Options Volatility Risk Lab
 
 --8<-- "options-power.html"
+
+<div class="explorer">
+<span class="explorer-heading">Explore: how many forecasts would it take?</span>
+<span class="explorer-sub">Drag the slider or move over the chart. The lines are exact, not simulated; they zigzag because the number of breaches is a whole number.</span>
+<div data-explorer="options" data-src="../assets/data/power.json"><p class="explorer-loading">Interactive chart: needs JavaScript. The figure above shows the headline numbers.</p></div>
+</div>
 
 With 12 forecasts the coverage test rejects only if 3 or more breach, and it can never flag an
 over-conservative VaR. A daily backtest over 2015–2025 (about 2,500 forecasts) would detect a breach
@@ -33,6 +45,12 @@ rate about 1.26 times the target. [Power report](https://github.com/jmiaie/optio
 <div class="stat"><span class="stat-value">197</span><span class="stat-label">events in the published test: detects a 1.6% gain</span></div>
 <div class="stat"><span class="stat-value">515</span><span class="stat-label">events needed to detect a 1% gain</span></div>
 <div class="stat"><span class="stat-value">2,060</span><span class="stat-label">events needed to detect a 0.5% gain</span></div>
+</div>
+
+<div class="explorer">
+<span class="explorer-heading">Explore: how many events would it take?</span>
+<span class="explorer-sub">Smallest gain the published design could detect 80% of the time, scaled to a different number of events. This is a projection from the published standard error, not a new test.</span>
+<div data-explorer="sentiment" data-src="../assets/data/power.json"><p class="explorer-loading">Interactive chart: needs JavaScript. The figure above shows the headline numbers.</p></div>
 </div>
 
 Gains are improvements in log loss as a share of the baseline. The comparison model had no skill

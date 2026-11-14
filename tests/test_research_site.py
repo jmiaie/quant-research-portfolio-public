@@ -7,6 +7,7 @@ same reviewed commit that research/publications.md cites.
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -72,3 +73,38 @@ def test_pages_workflow_never_deploys_automatically() -> None:
     assert deploy_if is not None
     assert "workflow_dispatch" in deploy_if.group(1)
     assert "inputs.deploy" in deploy_if.group(1)
+
+
+def test_interactive_data_matches_headline_figures() -> None:
+    """The explorer data carries its sources and agrees with the numbers quoted in prose."""
+    data = json.loads((SITE_DIR / "assets/data/power.json").read_text(encoding="utf-8"))
+
+    statarb = data["statarb"]
+    assert re.fullmatch(r"[0-9a-f]{64}", statarb["source_sha256"])
+    assert len(statarb["settings"]) == 10
+    headline = next(
+        s for s in statarb["settings"] if (s["k"], s["beta"], s["sigma"]) == (1, 1.0, 0.01)
+    )
+    by_half_life = {p["half_life"]: p["power"] for p in headline["points"]}
+    assert by_half_life[5] == 0.984
+    assert by_half_life[10] == 0.512
+    assert by_half_life[20] == 0.042
+
+    options = data["options"]
+    assert re.fullmatch(r"[0-9a-f]{64}", options["source_sha256"])
+    assert options["n"] == list(range(1, 2501))
+    assert options["power"]["2"][12 - 1] == 0.1109
+    assert options["power"]["2"][95 - 1] == 0.4821
+
+    sentiment = data["sentiment"]
+    mde = sentiment["mde_multiplier"] * sentiment["se_hat"]
+    assert round(mde, 4) == 0.0112
+    assert round(100 * mde / sentiment["baseline_log_loss"], 1) == 1.6
+
+
+def test_site_makes_no_third_party_requests() -> None:
+    config = (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8")
+    assert not re.search(r"^repo_url:", config, flags=re.MULTILINE)
+    script = (SITE_DIR / "assets/explorer.js").read_text(encoding="utf-8")
+    assert "http://" not in script.replace("http://www.w3.org/2000/svg", "")
+    assert "https://" not in script
