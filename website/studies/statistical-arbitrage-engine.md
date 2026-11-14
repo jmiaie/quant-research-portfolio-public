@@ -1,5 +1,7 @@
 # Statistical Arbitrage Engine
 
+<div class="study-meta"><span class="pill">Null result</span><span>2025 walk-forward · reviewed commit <code>6ae04ed</code></span></div>
+
 **Evaluation:** final 2025 walk-forward evaluation — deliberately not called an untouched holdout.
 
 ## Question
@@ -9,9 +11,21 @@ tradable pairs, evaluated with an event-driven, cost-aware backtest?
 
 ## Result
 
+<figure class="viz">
+<figcaption><span class="viz-title">The screen let nothing through in 2025</span><span class="viz-subtitle">Three walk-forward windows, 55 candidate pair tests each</span></figcaption>
+<div class="window-row">
+<div class="window"><span class="window-name">2025 window 1</span><span class="window-flow">55 tests → 0 passed</span><span class="window-sub">no trade</span></div>
+<div class="window"><span class="window-name">2025 window 2</span><span class="window-flow">55 tests → 0 passed</span><span class="window-sub">no trade</span></div>
+<div class="window"><span class="window-name">2025 window 3</span><span class="window-flow">55 tests → 0 passed</span><span class="window-sub">no trade</span></div>
+</div>
+<p class="meter-label"><span>All 32 windows in the study</span><span>4 selected a pair, all before 2025</span></p>
+<div class="meter" role="img" aria-label="4 of 32 windows selected a pair"><span class="meter-on" style="flex: 4"></span><span class="meter-off" style="flex: 28"></span></div>
+<p class="viz-note">Across all windows the screen ran 1,724 candidate tests. A screen that rejects everything in a period produces no return, Sharpe ratio or drawdown for that period, and none is estimated.</p>
+</figure>
+
 - **Null.** Three pure-2025 windows, 55 candidate tests each: 0 FDR survivors, 0 trades.
 - Across all four walk-forward buckets (32 windows, 1,724 candidate tests) the screen selected
-  a pair in only four windows, all before 2024.
+  a pair in only four windows, all before 2025.
 - No 2025 return, Sharpe, drawdown or turnover exists, and none is estimated.
 
 ## Corrections since publication

@@ -1,5 +1,7 @@
 # Financial Dynamics Model
 
+<div class="study-meta"><span class="pill">Descriptive</span><span>SPY · 2025 holdout · reviewed commit <code>86a843f</code></span></div>
+
 **Evaluation:** final 2025 holdout evaluation — a descriptive regime and risk characterization.
 
 ## Question
@@ -9,6 +11,8 @@ separate subsequent risk characteristics (forward-return dispersion, realized an
 volatility, tail risk, drawdown, persistence) on SPY?
 
 ## Result
+
+--8<-- "fdm-interval.html"
 
 - Risk characteristics differ **descriptively** across regimes. The difference is **not
   statistically significant**: for the 2025 `RISK_OFF` cell (n = 29), the paper's 90%

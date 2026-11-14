@@ -1,7 +1,8 @@
 # Options Volatility Risk Lab
 
-**Evaluation:** historical evaluation of a **hypothetical** option book on real SPY, DGS3MO and
-VIXCLS paths, 2015–2025. No historical option quotes are reconstructed.
+<div class="study-meta"><span class="pill">Method comparison</span><span>SPY, 2015–2025 · hypothetical book · reviewed commit <code>0b64176</code></span></div>
+
+**Evaluation:** historical evaluation of a **hypothetical** option book on real SPY, DGS3MO and VIXCLS paths, 2015–2025. No historical option quotes are reconstructed.
 
 ## Question
 
@@ -9,6 +10,8 @@ How do Historical-Simulation, Delta-Normal and Monte Carlo VaR/ES, and discrete 
 behave on real risk-factor paths?
 
 ## Result
+
+--8<-- "options-var.html"
 
 - VaR/ES method comparison with Kupiec/Christoffersen coverage diagnostics on **one forecast per
   monthly roll**: n = 95 (2015–2023 development), n = 12 (2024 validation), n = 12 (2025).

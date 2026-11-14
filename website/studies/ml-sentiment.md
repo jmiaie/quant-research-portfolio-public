@@ -1,7 +1,8 @@
 # ML Sentiment Study
 
-**Evaluation:** previously inspected historical evaluation (2025 block, n = 197, twelve issuers)
-— not an untouched holdout.
+<div class="study-meta"><span class="pill">Not demonstrated</span><span>Twelve issuers · 2025 block, n = 197 · reviewed commit <code>036c3d3</code></span></div>
+
+**Evaluation:** previously inspected historical evaluation (2025 block, n = 197, twelve issuers) — not an untouched holdout.
 
 ## Question
 
@@ -9,6 +10,8 @@ Does point-in-time Loughran-McDonald filing-text sentiment add predictive inform
 market-only features for short-horizon returns, tested without leakage?
 
 ## Result
+
+--8<-- "sentiment-interval.html"
 
 - **Failure to demonstrate.** Δ log loss (combined − market-only) = +0.0041, block-bootstrap 95%
   interval [−0.0049, +0.0108], which includes zero. Balanced-accuracy delta −0.027.
