@@ -24,6 +24,22 @@ install step is repository-specific and given in the Reproducing the Results ent
 re-checks every cited artifact hash. See [Reproducing the Results](../portfolio/VERIFYING.md) for the general
 procedure. A pass establishes *artifact integrity at that commit* — not performance.
 
+## Corrections and known limitations (2026-11-14)
+
+A review of all four studies found statements that needed correcting. The frozen artifacts and
+their hashes are unchanged; each repository records its corrections in a dated note under `docs/`.
+
+- **Financial Dynamics Model:** the claim that risk "differs measurably across regimes" was never
+  tested against a simple volatility baseline. It is now described as untested.
+- **Statistical Arbitrage Engine:** the position-sizing code does not trade the tested spread, and
+  four development windows that traded have out-of-sample results the write-up did not report
+  (`docs/known-defects-and-unreported-results.md`). The 2025 zero-trade result is not affected.
+- **Options Volatility Risk Lab:** the "persistently low-biased" realised-volatility claim is not
+  supported by the committed episodes, and about half of the reported 2025 increase in dollar
+  hedging error is SPY's higher price level (`docs/post-publication-corrections.md`).
+- **Sentiment study:** the market-only comparison model had no skill on the primary target, and one
+  cited interval rests on 20 rows (`docs/post-publication-notes.md`). The conclusion stands.
+
 ---
 
 ## 1. Financial Dynamics Model
@@ -36,7 +52,7 @@ procedure. A pass establishes *artifact integrity at that commit* — not perfor
 - **Data sources and provenance:** [`SOURCE-GATE.md`](https://github.com/jmiaie/financial-dynamics-model/blob/86a843f82c8ffa1545ceea7261b22afc12e29ffa/publication/historical-regime-study/SOURCE-GATE.md)
 - **Research question:** Can Bayesian and system-dynamics-inspired modeling improve market regime classification, risk conditioning, and forward-looking scenario analysis for financial time series?
 - **Evaluation classification:** **FINAL 2025 HOLDOUT EVALUATION** — a descriptive *regime and risk characterization*.
-- **Primary finding:** Risk characteristics differ measurably across the identified market regimes, characterized descriptively with every reported figure mapped to a committed artifact (a 469-row result-source map).
+- **Primary finding:** Regime-conditional risk characteristics are reported descriptively, with every reported figure mapped to a committed artifact (a 469-row result-source map). Whether the regime labels separate forward risk better than a simple trailing-volatility bucket has **not** been tested (correction, 2026-11-14: earlier wording said risk "differs measurably across regimes").
 - **Primary null / negative finding:** **No statistically validated predictive edge** is claimed, and no directional-accuracy or trading-alpha figure is asserted.
 - **Principal limitation:** Cells whose regime occurrence count falls below 20 are reported under a `min(20, n)` rule — 174 sparse-cell bootstrap rows carry an effective block size below the requested 20, so those intervals are degenerate or near-degenerate rather than evidence of stability.
 - **Reproduction entrypoint:** [`scripts/verify_pack.py`](https://github.com/jmiaie/financial-dynamics-model/blob/86a843f82c8ffa1545ceea7261b22afc12e29ffa/publication/historical-regime-study/scripts/verify_pack.py) — run `python publication/historical-regime-study/scripts/verify_pack.py` from a fresh clone of the head above.
@@ -65,7 +81,7 @@ procedure. A pass establishes *artifact integrity at that commit* — not perfor
 - **Result-to-source map:** [`RESULT-SOURCE-MAP.md`](https://github.com/jmiaie/options-volatility-risk-lab/blob/0b6417639157fb3cf9744da8f751a77c973d4640/publication/options-risk-study/RESULT-SOURCE-MAP.md)
 - **Research question:** How can a self-contained derivatives and portfolio-risk research system support pricing, volatility analysis, hedging simulation, and portfolio stress testing in a reproducible Python workflow?
 - **Evaluation classification:** **HISTORICAL EVALUATION** — a hypothetical nonlinear option portfolio on historical risk-factor paths.
-- **Primary finding:** Two hypothetical standardized constructs were evaluated on real historical SPY, DGS3MO, and VIXCLS paths from 2015–2025: discrete delta-hedging of a short ATM 30-session call replayed against actual SPY closes, and a standardized long-equity/short-call/long-put book risk-managed with three independent VaR/ES methodologies at two confidence levels, backtested with Kupiec/Christoffersen coverage diagnostics.
+- **Primary finding:** Two hypothetical standardized constructs were evaluated on real historical SPY, DGS3MO, and VIXCLS paths from 2015–2025: discrete delta-hedging of a short ATM 30-session call replayed against actual SPY closes, and a standardized long-equity/short-call/long-put book risk-managed with three VaR/ES methodologies at two confidence levels (Delta-Normal and Monte Carlo share the same normal distribution and volatility estimate; the backtest shocks spot only), backtested with Kupiec/Christoffersen coverage diagnostics.
 - **Primary null / negative finding:** The previously reported order-of-magnitude divergence between risk methodologies was largely a **volatility-units defect**; that explanation is withdrawn. No historical options-tape P&L is implied, and no live or deployed options-trading result is claimed.
 - **Principal limitation:** The portfolio is hypothetical and evaluated on historical underlying, risk-free-rate, and volatility-index paths — no historical option quotes are reconstructed. Vanilla European instruments only, with documented model idealizations.
 - **Reproduction entrypoint:** [`scripts/verify_pack.py`](https://github.com/jmiaie/options-volatility-risk-lab/blob/0b6417639157fb3cf9744da8f751a77c973d4640/publication/options-risk-study/scripts/verify_pack.py) — run `python publication/options-risk-study/scripts/verify_pack.py` from a fresh clone of the head above.
