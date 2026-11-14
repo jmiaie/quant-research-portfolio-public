@@ -18,10 +18,11 @@ received the artifacts and a neutral brief, with no access to the author's reaso
 human review has been performed yet. The reviewed commit is listed below and all links are pinned
 to it, so they will not drift.
 
-**How to reproduce any study.** Clone the repository, check out the canonical head listed below,
+**How to verify the publication artifacts.** Clone the repository, check out the canonical head listed below,
 then run that project's reproduction entrypoint (offline — no network, no credentials; the
-install step is repository-specific and given in the Reproducing the Results entry for that project). A passing run reproduces the committed tables and figures byte-identically and
-re-checks every cited artifact hash. See [Reproducing the Results](../portfolio/VERIFYING.md) for the general
+install step is repository-specific and given in the Reproducing the Results entry for that project). A passing run regenerates the committed tables, checks the figures under that verifier's rendering
+contract, and re-checks every cited artifact hash. It uses the committed results; it does not re-run
+the studies from raw vendor data. See [Reproducing the Results](../portfolio/VERIFYING.md) for the general
 procedure. A pass establishes *artifact integrity at that commit* — not performance.
 
 ## Corrections and known limitations (2026-11-14)
@@ -34,6 +35,10 @@ their hashes are unchanged; each repository records its corrections in a dated n
 - **Statistical Arbitrage Engine:** the position-sizing code does not trade the tested spread, and
   four development windows that traded have out-of-sample results the write-up did not report
   (`docs/known-defects-and-unreported-results.md`). The 2025 zero-trade result is not affected.
+  The Benjamini-Hochberg step-up rule was also corrected after publication. Old and corrected
+  rules agree on whether any pair is selected, so the three 2025 zero-survivor windows are
+  unchanged; which pairs were selected in earlier windows may differ
+  (`docs/post-publication-bh-correction.md`).
 - **Options Volatility Risk Lab:** the "persistently low-biased" realised-volatility claim is not
   supported by the committed episodes, and about half of the reported 2025 increase in dollar
   hedging error is SPY's higher price level (`docs/post-publication-corrections.md`).

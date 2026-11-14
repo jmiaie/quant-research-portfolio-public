@@ -42,7 +42,7 @@ The repository uses both deterministic synthetic fixtures and a documented histo
 
 ## Validation
 
-Financial invariants are covered by the source repository's automated test suite (pricing parity/bounds, analytic-vs-FD Greeks, IV round-trips, Monte Carlo convergence, portfolio accounting, hedging self-financing identities, VaR/ES closed-form toys, stress/attribution residuals). Example scripts write seeded JSON artifacts under stated assumptions. The reproducibility bundle under `publication/options-risk-study/` adds a verifier that regenerates the committed tables and figure byte-identically and re-checks every cited hash — see [Reproducing the Results](VERIFYING.md).
+Financial invariants are covered by the source repository's automated test suite (pricing parity/bounds, analytic-vs-FD Greeks, IV round-trips, Monte Carlo convergence, portfolio accounting, hedging self-financing identities, VaR/ES closed-form toys, stress/attribution residuals). Example scripts write seeded JSON artifacts under stated assumptions. The reproducibility bundle under `publication/options-risk-study/` adds a verifier that regenerates the committed tables byte-identically, checks the figure under its documented rendering contract, and re-checks every cited hash — see [Reproducing the Results](VERIFYING.md).
 
 ## Risk & Limitations
 

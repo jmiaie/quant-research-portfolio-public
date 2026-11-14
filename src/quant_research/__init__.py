@@ -7,6 +7,7 @@ from quant_research.features import rolling_momentum, rolling_zscore
 from quant_research.portfolio import (
     annualized_return,
     annualized_volatility,
+    cagr_volatility_ratio,
     inverse_volatility_weights,
     max_drawdown,
     performance_summary,
@@ -18,6 +19,7 @@ __all__ = [
     "ExampleResult",
     "annualized_return",
     "annualized_volatility",
+    "cagr_volatility_ratio",
     "classify_volatility_regime",
     "generate_synthetic_prices",
     "inverse_volatility_weights",
