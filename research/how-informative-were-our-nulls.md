@@ -51,8 +51,17 @@ rejects only if 3 or more breach, and it can never flag an over-conservative VaR
 breaches is not rejectable below 38 forecasts. The Christoffersen clustering test has at most 14%
 power at n = 12, so the published p = 1.000 values carry no information about clustering.
 
-Detecting a doubled breach rate with 80% power takes about 224 forecasts. A daily backtest over
-2015–2025 (about 2,500 forecasts) would detect a breach rate about 1.26 times the target.
+Detecting a doubled breach rate with 80% power takes about 224 forecasts.
+
+**The daily backtest has now been run (2026-11-15).** A pre-specified follow-up re-marked the book
+daily at VIX, with time decay, and made 2,513 one-day forecasts over 2016–2025
+([report](https://github.com/jmiaie/options-volatility-risk-lab/blob/main/research/daily_var_backtest/REPORT.md)). A two-factor historical-simulation VaR (SPY return and VIX change) is not
+rejected: coverage p = 0.76 with 129 breaches (5.13%), independence p = 0.35, and the
+expected-shortfall test sits at the decision boundary (adjusted p = 0.0501). That non-rejection is
+evidence against a 95% breach-rate error of 1.3 times the target or more. The spot-only method,
+scored against the same profit and loss, is rejected on coverage (p = 0.009) and independence. The
+data had been inspected before, so this is a historical evaluation, not a holdout, and the published
+results are unchanged.
 
 ### ML Sentiment Study
 

@@ -36,8 +36,14 @@ or not such pairs exist. [Power report](https://github.com/jmiaie/Advanced_Algor
 </div>
 
 With 12 forecasts the coverage test rejects only if 3 or more breach, and it can never flag an
-over-conservative VaR. A daily backtest over 2015–2025 (about 2,500 forecasts) would detect a breach
-rate about 1.26 times the target. [Power report](https://github.com/jmiaie/options-volatility-risk-lab/blob/main/research/power/REPORT.md).
+over-conservative VaR. [Power report](https://github.com/jmiaie/options-volatility-risk-lab/blob/main/research/power/REPORT.md).
+
+**Follow-up, run on 2026-11-15.** A pre-specified daily backtest made 2,513 forecasts over 2016–2025,
+with the book re-marked daily at VIX. A two-factor historical-simulation VaR is not rejected (coverage
+p = 0.76, independence p = 0.35, expected shortfall at the boundary with adjusted p = 0.0501), which
+is evidence against a breach-rate error of 1.3 times the target or more. The spot-only method is
+rejected against the same profit and loss. Previously inspected data, not a holdout.
+[Daily backtest report](https://github.com/jmiaie/options-volatility-risk-lab/blob/main/research/daily_var_backtest/REPORT.md).
 
 ## ML Sentiment Study
 
