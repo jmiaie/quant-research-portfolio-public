@@ -29,7 +29,9 @@ double the target only 11% of the time. See [What the tests could detect](../pow
 - The claim that realised volatility is "persistently low-biased" is not supported by the committed
   episodes.
 - About half of the reported 2025 increase in dollar hedging error is SPY's higher price level.
-- The VaR backtest covers spot moves only.
+- The VaR backtest covers spot moves only. A pre-specified daily follow-up that adds volatility and
+  time risk (2,513 forecasts) did not reject a two-factor VaR and rejected the spot-only method:
+  [daily backtest report](https://github.com/jmiaie/options-volatility-risk-lab/blob/main/research/daily_var_backtest/REPORT.md).
 - Details: [`docs/post-publication-corrections.md`](https://github.com/jmiaie/options-volatility-risk-lab/blob/main/docs/post-publication-corrections.md).
 
 ## Read the paper
